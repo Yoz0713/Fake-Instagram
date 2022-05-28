@@ -26,13 +26,23 @@ let textbox = document.getElementById("textbox");
 //獲取一個愛心
 let heart = document.getElementById("heart");
 
+//獲取讚數
+let thumbUP = document.querySelectorAll(".post-image-scroll p");
+
+
 heart.onclick = function(){
     if( heart.style.color == "red"){
         heart.className ="fa-regular  fa-heart";
         heart.style.color = "#fff"
+        for(let  i = 0 ; i <thumbUP.length ; i++){
+            thumbUP[i].innerHTML = "1,207個讚";
+        }
     } else{
         heart.className ="fa-solid fa-heart";
         heart.style.color = "red"
+        for(let  i = 0 ; i <thumbUP.length ; i++){
+            thumbUP[i].innerHTML = "1,208個讚";
+        }
     }
     return false
    
@@ -80,6 +90,8 @@ for(let i=0 ; i<modal.length ; i++){
 //獲取留言框
 let leaveMessage = document.querySelectorAll(".doc input");
 let area = document.getElementsByClassName("message-area");
+let count = document.getElementsByClassName("count");
+
 
 for(let i=0 ; i<leaveMessage.length ; i++)
     leaveMessage[i].onkeydown = function(event){
@@ -93,7 +105,13 @@ for(let i=0 ; i<leaveMessage.length ; i++)
         li.style.listStyle = "none"
         li.style.fontSize = "0.6em"
      
-        leaveMessage[i].value = null;  
+        leaveMessage[i].value = null; 
+        for(j = 0 ; j < count.length ; j++){
+            let messageNum = parseInt(count[i].innerHTML.slice(4,7));
+            messageNum = ++messageNum;
+            count[i].innerHTML = "查看全部"+messageNum+"則留言";
+        }
+
     }
  
 }
