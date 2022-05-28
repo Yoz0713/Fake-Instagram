@@ -1,0 +1,424 @@
+@charset "UTF-8";
+
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+    
+}
+p,h1,h2,h3,h4,h5,h6,i{
+    color: #fff;
+}
+body{
+    background-color: #000;
+    height: 100%;
+}
+#wrap{
+    background-color: black;
+    width: 100%;
+    min-width: 375px;
+    height: 100vh;
+    position: relative;
+}
+#header{
+    display: flex;
+    position: fixed;
+    width: 100%;
+    margin:0 auto;
+    height: 50px;
+    justify-content: space-between;
+    align-items: center;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background-color: #000;
+}
+
+#footer{
+    position: fixed;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    background-color: #000;
+}
+.logo{
+    display: flex;
+}
+.logo h1{
+    font-family: 'Cookie', cursive;
+    color: #fff;
+    padding:  0 10px;
+}
+.logo i{
+    color: #fff;
+    display: inline;
+    align-self: center;
+}
+.text i{
+    margin-left: 5px;
+    font-size: 16px;
+    color: #fff;
+}
+
+.text i:nth-child(1){
+    border: 2px solid #fff;
+    font-size: 12px;
+    padding: 2px;
+}
+.text i:nth-child(3)::after{
+    content: "13";
+    display: inline-block;
+    position: relative;
+    transform: translate(-7px,-7px);
+    background-color: red;
+    border-radius: 5px;
+    padding:  1px 3px;
+    font-size: 12px;
+    
+}
+
+.text input{
+    position: absolute;
+    z-index: -1;
+
+}
+#nav{
+    display: flex;
+    width: 100%;
+    margin: 50px 0 15px;
+    border-bottom: .1px solid rgba(204, 204, 204, 0.27);
+    padding-bottom: 5px;
+}
+.dynamic{
+    width: 15%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#nav>.dynamic{
+    padding: 0 10px;
+
+}
+#nav .dynamic{
+    width: 25%;
+}
+.dynamic img{
+    border-radius: 50%;
+    padding: 2px;
+    border: 2px solid rgb(240, 100, 24);
+    cursor: pointer;
+    
+}
+
+i{
+    cursor: pointer;
+}
+.dynamic p {
+    color: #fff;
+    font-size: 0.3em;
+    font-weight: lighter;
+    margin: 5px 0 ;
+}
+#my-pic{
+    border: none;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+#nav  i{
+    color: #fff;
+    background-color: rgb(91, 189, 250);
+    border-radius: 50%;
+    padding: 2px;
+    font-size: 12px;
+    position: absolute;
+    transform: translate(14px,0);
+    border: 3px solid #000;
+}
+.post-image-title{
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 100%;
+    
+}
+.post-image-title-name p{
+    font-size: 0.3em;
+}
+.post-image-title-more{
+    width:200px;
+    height: 30px;
+    align-self: flex-end;
+    font-size: 1.2em;
+    text-align: end;
+}
+.post-image-pic{
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    height: fit-content;
+    color: #fff;
+}
+.post-image-pic img{
+    width: 100%;
+}
+.post-image-pic i{
+    font-size: 0.3em;
+    text-align: center;
+    position: absolute;
+    left: 15px;
+    bottom: 15px;
+    background-color: rgba(0, 0, 0, 0.633);
+    padding: 4px;
+    border-radius: 50%;
+}
+
+.doc li{
+    padding: 3px;
+    display: flex;
+    align-items: center;
+}
+.post{
+    margin-bottom: 20px;
+}
+/*---------------------------------此為pop區---------------------------------*/
+.modal{
+    display: none;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+    transition: .5s ;
+}
+.modal-content{
+    background-color: transparent;
+    margin: 0 auto;
+    width: 100%;
+    height: 100vh;
+}
+.close{
+    position: absolute;
+    width: 100%;
+    color: rgb(233, 228, 228);
+    text-align: right;
+    font-size: 60px;
+    transform: translateX(-10px);
+   font-weight: bold;
+}
+.close:hover,
+.close:focus{
+    cursor: pointer;
+    color: #000;
+}
+.more{
+    position: absolute;
+    width: 100%;
+    color: rgb(233, 228, 228);
+    text-align: right;
+    font-size: 40px;
+    transform: translateX(-55px);
+    font-weight: bold;
+}
+
+.modal-footer{
+    display: flex;
+    position: absolute;
+    z-index: 100;
+    width: 100%;
+    transform: translateY(-75px);
+    justify-content: space-around;
+    font-size: 30px;
+    align-items: center;
+    color: #fff;
+}
+.modal-footer input{
+    background-color: transparent;
+    border-radius: 30px;
+    width: 65%;
+    padding: 10px;
+    margin: 0 10px;
+    border: 2px solid #ccc;
+    color: #ccc;
+    font-size: 20px;
+}
+
+
+.modal-body{
+    height: 100%;
+}
+
+/*---------------------------------此為pop區---------------------------------*/
+/*---------------------------------此為小盒子區---------------------------------*/
+.top-banner{
+    display: flex;
+    flex-wrap: nowrap;
+    padding:  2px 5px;
+    justify-content: space-around;
+}
+
+.banner-left{
+    width: 60%;
+    display: flex;
+    align-items: center;
+
+}
+.banner-left .close{
+    width: 8%;
+}
+
+.banner-right{
+    display: flex;
+    width: 45%;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.banner-right i{
+    margin: 0 5px;
+}
+
+.banner-right i span{
+    color: #000;
+   position: absolute;
+   transform: translate(-18px,1px);
+   font-size: 0.8em;
+   font-weight: bold;
+}
+#textbox{
+    background-color: #000;
+}
+#textbox i,
+#textbox h2{
+    color: #fff;
+    
+} 
+#textbox h2{
+    letter-spacing: .07em;
+    margin: 0 5px;
+}
+
+.bottom-banner{
+    display: flex;
+    justify-content: flex-start;
+}
+.textBox-serch{
+    width: 100%;
+  text-align: center;
+}
+.textBox-serch input{
+    width: 95%;
+   background-color: rgb(63, 62, 62);
+   border: none;
+   border-radius: 10px;
+   padding: 5px;
+   margin: 10px 0;
+}
+#textbox .close{
+    text-align: left;
+    font-size: 16px;
+    transform: translate(8px,3px);
+    position: static;
+}
+.bottom-banner p::after{
+    content: "";
+    display: inline-block;
+    height: 9px;
+    width: 9px;
+    background-color: aquamarine;
+    border-radius: 50%;
+    position: absolute;
+    transform: translate(-14px,-20px);
+    border: 4px solid #000;
+}
+.top-text{
+    display: flex;
+    color: #fff;
+    text-decoration: none;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+}
+.top-text a{
+    color: #ccc;
+    font-size: 0.8em;
+}
+.bottom-text{
+    padding: 20px;
+}
+.message{
+    display: flex;
+   
+    height: 60px;
+}
+.detail-message{
+    padding: 10px;
+    width: 100%;
+    
+}
+.cam i{
+ transform: translateY(17px);
+}
+
+.detail-message span{
+    font-size: 0.8em;
+    color: #ccc;
+}
+
+.post-image-scroll{
+    padding: 5px;
+}
+
+.post-image-scroll p{
+    font-size: 0.8em;
+    padding: 5px;
+}
+.post-image-scroll i{
+    padding: 5px;
+}
+.post-image-scroll i:nth-child(4){
+    float: right;
+}
+.doc{
+    padding: 10px;
+}
+.doc span{
+    color: #ccc;
+    font-size: 0.6em;
+}
+.doc .dynamic{
+    width: fit-content;
+    flex-direction: row;
+    padding: 5px 0;
+    width: 100%;
+}
+.doc .dynamic input{
+    background-color: transparent;
+    padding: 5px 10px;
+    border: none;
+    color: #ccc;
+    border-radius: 30px ;
+    width: 100%;
+}
+.doc span{
+    color: #ccc;
+}
+.doc p{
+    font-size: 0.8em;
+}
+.doc ul{
+    color: #fff;
+    font-size: 0.6em;
+    list-style: none;
+}
+/*---------------------------------此為小盒子區---------------------------------*/
