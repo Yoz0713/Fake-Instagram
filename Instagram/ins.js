@@ -91,27 +91,71 @@ for(let i=0 ; i<modal.length ; i++){
 let leaveMessage = document.querySelectorAll(".doc input");
 let area = document.getElementsByClassName("message-area");
 let count = document.getElementsByClassName("count");
-
+let delMessage = document.getElementsByClassName("delMessage")[0];
 
 for(let i=0 ; i<leaveMessage.length ; i++)
-    leaveMessage[i].onkeydown = function(event){
+    $(".doc input")[i].onkeydown = function(event){
     event = event || window.event;
+    
     if(event.keyCode == 13){
         let message = leaveMessage[i].value;
         let li = document.createElement("li");
-        li.innerHTML = "<img src='../../圖片/chong-gi.jpg' alt='我的頭貼' width='20px' id='my-pic'>"+"daniel_yu0402:"+message;
+               
         area[i].appendChild(li);
         li.style.color = "#fff";
         li.style.listStyle = "none"
         li.style.fontSize = "0.6em"
-     
+         
         leaveMessage[i].value = null; 
-        for(j = 0 ; j < count.length ; j++){
+     
             let messageNum = parseInt(count[i].innerHTML.slice(4,7));
             messageNum = ++messageNum;
-            count[i].innerHTML = "查看全部"+messageNum+"則留言";
-        }
+            count[i].innerHTML = "查看全部"+(messageNum)+"則留言";
+
+            
+               
+            for(let x = 0 ; x <$(".message-area li").length;x++){
+                li.innerHTML = `<img src='../../圖片/chong-gi.jpg' alt='我的頭貼' width='20px' id='my-pic'>
+                daniel_yu0402:${message}
+                <a href="javascript:;" class="delMessage${x}">
+                    <i class='fa-solid fa-trash-can' style='transform:scale(0.6);'></i>
+                </a>`;
+                $(`.delMessage${x}`).css("right","0").css("position","absolute");
+                $(`.delMessage${x}`).click(function(){
+                    $(`.delMessage${x}`).parent().remove();
+                    messageNum--
+                    count[i].innerHTML = "查看全部"+(messageNum)+"則留言";
+                }) 
+            }
+
 
     }
- 
+   
+    
 }
+  
+
+//--------------------以下為圖片輪播區-----------------------------------------
+//獲取圖片區
+let picDiv = document.getElementsByClassName("pic-Switch");
+let turnA = document.querySelectorAll(".turn a");
+let turnA2 = document.querySelectorAll(".turn2 a");
+let picDiv2 = document.getElementsByClassName("pic-Switch2");
+
+function rollPic(a,pic){
+    for( let i = 0 ; i<a.length ; i++){
+        a[i].onclick = function(){
+            for( let j = 0 ; j<pic.length ; j++){
+                let turn = (i)*-100+"%";
+                pic[j].style.left = turn;
+            }
+            turnA[i].className = "click";
+        }
+    }
+}
+rollPic(turnA,picDiv);
+rollPic(turnA2,picDiv2);
+
+
+
+//--------------------以上為圖片輪播區-----------------------------------------
