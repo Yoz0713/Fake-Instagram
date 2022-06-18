@@ -115,7 +115,7 @@ for(let i=0 ; i<leaveMessage.length ; i++)
             
                
             for(let x = 0 ; x <$(".message-area li").length;x++){
-                li.innerHTML = `<img src='../../圖片/chong-gi.jpg' alt='我的頭貼' width='20px' id='my-pic'>
+                li.innerHTML = `<img src='圖片/chong-gi.jpg' alt='我的頭貼' width='20px' id='my-pic'>
                 daniel_yu0402:${message}
                 <a href="javascript:;" class="delMessage${x}">
                     <i class='fa-solid fa-trash-can' style='transform:scale(0.6);'></i>
@@ -156,7 +156,7 @@ for(let i=0 ; i<leaveMessage.length ; i++){
             
                
             for(let x = 0 ; x <$(".message-area li").length;x++){
-                li.innerHTML = `<img src='../../圖片/chong-gi.jpg' alt='我的頭貼' width='20px' id='my-pic'>
+                li.innerHTML = `<img src='圖片/chong-gi.jpg' alt='我的頭貼' width='20px' id='my-pic'>
                 daniel_yu0402:${message}
                 <a href="javascript:;" class="delMessage${x}">
                     <i class='fa-solid fa-trash-can' style='transform:scale(0.6);'></i>
