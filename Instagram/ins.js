@@ -135,7 +135,7 @@ for(let i=0 ; i<leaveMessage.length ; i++)
 }
 
 for(let i=0 ; i<leaveMessage.length ; i++){
-    $(`.leave-message:eq(${i})`).click((event)=>{
+    $(`.leave-message:eq(${i})`).tap((event)=>{
         console.log(leaveMessage)
         if(!(leaveMessage === "")){
             event = event || window.event;
