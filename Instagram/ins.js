@@ -17,35 +17,38 @@ let modal4 = document.getElementById("myModal4");
 //獲取close按鈕與modal元素，可用來將限時動態關閉
 let close = document.getElementsByClassName("close");
 let modal = document.getElementsByClassName("modal");
-
+let heart = document.querySelectorAll(".heart");
 //獲取紙飛機圖示打開小盒子
 let plane = document.getElementById("open");
 //獲取小盒子頁面
 let textbox = document.getElementById("textbox");
 
 //獲取一個愛心
-let heart = document.getElementById("heart");
+
 
 //獲取讚數
 let thumbUP = document.querySelectorAll(".post-image-scroll p");
 
-
-heart.onclick = function(){
-    if( heart.style.color == "red"){
-        heart.className ="fa-regular  fa-heart";
-        heart.style.color = "#fff"
-        for(let  i = 0 ; i <thumbUP.length ; i++){
-            thumbUP[i].innerHTML = "1,207個讚";
-        }
-    } else{
-        heart.className ="fa-solid fa-heart";
-        heart.style.color = "red"
-        for(let  i = 0 ; i <thumbUP.length ; i++){
-            thumbUP[i].innerHTML = "1,208個讚";
-        }
-    }
-    return false
+for(let i = 0 ; i < heart.length ; i++){
+    heart[i].onclick = function(){
    
+        if( heart[i].style.color == "red"){
+            heart[i].className ="fa-regular  fa-heart";
+            heart[i].style.color = "#fff"
+            for(let  i = 0 ; i <thumbUP.length ; i++){
+                thumbUP[i].innerHTML = "1,207個讚";
+            }
+        } else{
+            heart[i].className ="fa-solid fa-heart";
+            heart[i].style.color = "red"
+            for(let  i = 0 ; i <thumbUP.length ; i++){
+                thumbUP[i].innerHTML = "1,208個讚";
+            }
+        }
+        return false
+       
+    }
+    
 }
 
 //獲取頁首頁尾
