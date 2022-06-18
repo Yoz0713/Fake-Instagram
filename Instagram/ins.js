@@ -133,6 +133,46 @@ for(let i=0 ; i<leaveMessage.length ; i++)
    
     
 }
+
+for(let i=0 ; i<leaveMessage.length ; i++){
+    $(`.leave-message:eq(${i})`).click((event)=>{
+        console.log(leaveMessage)
+        if(!(leaveMessage === "")){
+            event = event || window.event;
+        let message = leaveMessage[i].value;
+        let li = document.createElement("li");
+               
+        area[i].appendChild(li);
+        li.style.color = "#fff";
+        li.style.listStyle = "none"
+        li.style.fontSize = "0.6em"
+         
+        leaveMessage[i].value = null; 
+     
+            let messageNum = parseInt(count[i].innerHTML.slice(4,7));
+            messageNum = ++messageNum;
+            count[i].innerHTML = "查看全部"+(messageNum)+"則留言";
+
+            
+               
+            for(let x = 0 ; x <$(".message-area li").length;x++){
+                li.innerHTML = `<img src='../../圖片/chong-gi.jpg' alt='我的頭貼' width='20px' id='my-pic'>
+                daniel_yu0402:${message}
+                <a href="javascript:;" class="delMessage${x}">
+                    <i class='fa-solid fa-trash-can' style='transform:scale(0.6);'></i>
+                </a>`;
+                $(`.delMessage${x}`).css("right","0").css("position","absolute");
+                $(`.delMessage${x}`).click(function(){
+                    $(`.delMessage${x}`).parent().remove();
+                    messageNum--
+                    count[i].innerHTML = "查看全部"+(messageNum)+"則留言";
+                }) 
+            }
+        }
+       
+    }) 
+}
+    
   
 
 //--------------------以下為圖片輪播區-----------------------------------------

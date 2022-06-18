@@ -202,7 +202,7 @@ i{
     margin-bottom: 20px;
 }
 .turn{
-    width: 30px;
+    width: 50px;
     height: 30px;
     position: absolute;
     top: 10px;
@@ -553,6 +553,17 @@ i{
     content: "•";
     display: inline;
 }
+
+.leave-message{
+    width:fit-content;
+    border-radius: 15px;
+    padding: 3px;
+    color: #188fd4;
+    font-weight: 800;
+    position: absolute;
+    right: 16px;
+
+}
 /*---------------------------------此為小盒子區---------------------------------*/
 .rwd-pad{
     display: none;
@@ -664,6 +675,11 @@ i{
         height: 100%;
         margin: auto 0;
         
+    }
+    .leave-message{
+        right: 16px;
+        top: 5px;
+       
     }
     @media all and (min-width:1440px){
         #nav{
