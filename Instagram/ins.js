@@ -135,8 +135,8 @@ for(let i=0 ; i<leaveMessage.length ; i++)
 }
 
 for(let i=0 ; i<leaveMessage.length ; i++){
-    $(`.leave-message:eq(${i})`).on("tap",(event)=>{
-        console.log(leaveMessage)
+    $(`.leave-message:eq(${i})`).bind("touchend",(event)=>{
+      
         if(!(leaveMessage === "")){
             event = event || window.event;
         let message = leaveMessage[i].value;
