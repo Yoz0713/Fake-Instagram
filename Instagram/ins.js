@@ -121,7 +121,7 @@ for(let i=0 ; i<leaveMessage.length ; i++)
                 li.innerHTML = `<img src='圖片/chong-gi.jpg' alt='我的頭貼' width='20px' id='my-pic'>
                 daniel_yu0402:${message}
                 <a href="javascript:;" class="delMessage${x}">
-                    <i class='fa-solid fa-trash-can' style='transform:scale(0.6);'></i>
+                    <i class='fa-solid fa-trash-can' ></i>
                 </a>`;
                 $(`.delMessage${x}`).css("right","0").css("position","absolute");
                 $(`.delMessage${x}`).click(function(){
@@ -192,7 +192,7 @@ function rollPic(a,pic){
                 let turn = (i)*-100+"%";
                 pic[j].style.left = turn;
             }
-            turnA[i].className = "click";
+            a[i].classList.toggle("click");
         }
     }
 }

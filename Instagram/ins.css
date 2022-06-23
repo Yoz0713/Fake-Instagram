@@ -234,6 +234,7 @@ i{
 }
 .click{
     background-color: #12bad4;
+    
 }
 
     
@@ -569,6 +570,10 @@ i{
     display: none;
 }
 
+.fa-trash-can::before{
+    transform: scale(0.);
+    transform: translateX(-30px);
+}
 /*-----------------------------------以下為電腦版區域--------------------------------------*/
 
 
@@ -681,7 +686,8 @@ i{
         top: 5px;
        
     }
-    @media all and (min-width:1440px){
+    
+    @media all and (min-width:1300px){
         #nav{
             margin: 100px auto 20px;
         }
@@ -713,7 +719,12 @@ i{
             width:70%
 
         }
-        
+        .post-image-title{
+            padding-left: 20px
+        }
+        .post-image-title-name{
+            margin-left: 20px
+        }
     }
 };
 
