@@ -31,19 +31,29 @@ let thumbUP = document.querySelectorAll(".post-image-scroll p");
 
 for(let i = 0 ; i < heart.length ; i++){
     heart[i].onclick = function(){
-   
+       
+         
+            function greatCount (e,change){
+                e = e.text().slice(0,-2)
+                e = e.split(",").join("");
+                e = parseInt(e)+change;
+               e= e.toString().split("");
+                e.splice(e.length-3,0,",")
+                e = e.join("");
+                return e;
+            }
+    
         if( heart[i].style.color == "red"){
             heart[i].className ="fa-regular  fa-heart";
             heart[i].style.color = "#fff"
-            for(let  i = 0 ; i <thumbUP.length ; i++){
-                thumbUP[i].innerHTML = "1,207個讚";
-            }
+         
+            thumbUP[i].innerHTML = greatCount($(`.great:eq(${i})`),-1)+"個讚" ;
+      
         } else{
             heart[i].className ="fa-solid fa-heart";
             heart[i].style.color = "red"
-            for(let  i = 0 ; i <thumbUP.length ; i++){
-                thumbUP[i].innerHTML = "1,208個讚";
-            }
+            thumbUP[i].innerHTML = greatCount($(`.great:eq(${i})`),+1)+"個讚" ;
+   
         }
         return false
        
